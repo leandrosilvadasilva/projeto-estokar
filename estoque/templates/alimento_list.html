@@ -1,0 +1,49 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Lista de Alimentos</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Validade</th>
+        <th>Peso(Kg)</th>
+        <th>Status de Validade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for alimento in object_list %}
+      <tr>
+        <td>{{ alimento.nome }}</td>
+        <td>{{ alimento.quantidade }}</td>
+        <td>{{ alimento.validade }}</td>
+        <td>{{ alimento.peso }}</td>
+        {% if alimento.status_validade == 'Vencido' %}
+          <td class="text-danger fw-bold">{{ alimento.status_validade }} - 
+          <a href="{% url 'alimento_delete' alimento.pk %}" class="btn btn-sm btn-danger fw-bold justify-content-center">EXCLUIR</a></td>
+          
+        {% else %}
+          <td class="text-success fw-bold">{{ alimento.status_validade }}</td>
+        {% endif %}
+       
+        <td>
+          <a href="{% url 'alimento_update' alimento.pk %}" class="btn btn-md btn-warning">Editar</a>
+          {% if alimento.status_validade == 'Vencido' %}
+            <a href="{% url 'alimento_delete' alimento.pk %}" class="btn btn-md btn-secondary d-none">Excluir</a>
+          {% else %}
+            <a href="{% url 'alimento_delete' alimento.pk %}" class="btn btn-md btn-danger">Excluir</a>
+          {% endif %}
+          
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'alimento_create' %}" class="btn btn-primary fw-bold">Adicionar + </a>
+</div>
+{% endblock %}

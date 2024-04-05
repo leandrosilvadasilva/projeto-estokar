@@ -1,0 +1,32 @@
+<!-- alimento_create.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <h1>Adicionar Alimento</h1>
+    <form method="post" class="form-control form-control-lg bg-light">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_nome" class="form-label form-label-lg">Nome:</label>
+        {{ form.nome }}
+      </div>
+      <div class="mb-3">
+        <label for="id_quantidade" class="form-label">Quantidade:</label>
+        {{ form.quantidade }}
+      </div>
+      <div class="mb-3">
+        <label for="id_validade" class="form-label">Validade:</label>
+        {{ form.validade }}
+      </div>
+      <div class="mb-3">
+        <label for="id_peso" class="form-label">Peso(Kg):</label>
+        {{ form.peso }}
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="{% url 'alimento_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
