@@ -1,5 +1,6 @@
 
-from django.shortcuts import render, redirect
+from urllib import request
+from django.shortcuts import render 
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Alimento
@@ -25,3 +26,7 @@ class AlimentoDeleteView(DeleteView):
     model = Alimento
     template_name = 'alimento_delete.html'
     success_url = reverse_lazy('alimento_list')
+
+
+def home(request): 
+   return render (request, './home.html')
