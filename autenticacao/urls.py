@@ -10,8 +10,8 @@ from django.urls import path
 
 from autenticacao.views import HomeView, SigupView, SiginView, ExitView
 urlpatterns = [
-    # path('login/', LoginView.as_view(), name='login'),  # Substitua 'login_view' pela sua função de visualização de login
-    # path('menu/', MenuView.as_view(), name='menu'),
+    #path('login/', SiginView.as_view(), name='login'),  # Substitua 'login_view' pela sua função de visualização de login
+    #path('menu/', MenuView.as_view(), name='menu'),
     path('', HomeView.as_view(), name='home'),
     path('sigup/', SigupView.as_view(), name='sigup'),
     path('sigin/', SiginView.as_view(), name='sigin'),
