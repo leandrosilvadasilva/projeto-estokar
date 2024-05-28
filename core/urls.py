@@ -11,8 +11,8 @@ from django.shortcuts import redirect
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('', include('estoque.urls')),
-
+    path('', include('autenticacao.urls')),
+    path('estoque/', include('estoque.urls')),
 
     # path('admin/', admin.site.urls),
     # path('',include('autenticacao.urls')),

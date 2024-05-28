@@ -24,6 +24,8 @@ urlpatterns = [
     path('create/', AlimentoCreateView.as_view(), name='alimento_create'),
     path('update/<int:pk>/', AlimentoUpdateView.as_view(), name='alimento_update'),
     path('delete/<int:pk>/', AlimentoDeleteView.as_view(), name='alimento_delete'),
+   
+    
 ]
 
 
