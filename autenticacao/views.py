@@ -50,7 +50,7 @@ class SiginView(TemplateView):
             # Login bem-sucedido, redireciona para a página inicial
             login(request, user)
             # REDIRECIONAR PARA PAGINA
-            return redirect('home')
+            return redirect('alimento_list')
         else:
             # Exibir mensagem de erro se o login falhar
             messages.error(request, 'Nome de usuário ou senha inválidos.')
